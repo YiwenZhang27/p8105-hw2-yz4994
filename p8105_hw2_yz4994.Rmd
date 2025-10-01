@@ -27,7 +27,7 @@ pols_df <- read_csv("./fivethirtyeight_datasets/pols-month.csv") |>
 pols_df
 ```
 ## Dataset snp
-```{R}
+```{R import and clean dataset snp}
 snp_df<- read_csv("./fivethirtyeight_datasets/snp.csv", na = c("NA", ".", "")) |>
   janitor::clean_names()|>
   separate(date, into = c("month", "day", "year"), sep = "/", convert = TRUE) |>
