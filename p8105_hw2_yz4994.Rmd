@@ -61,7 +61,7 @@ unemployment_df <- read_csv("./fivethirtyeight_datasets/unemployment.csv") |>
 unemployment_df
 ```
 ## Merge the three datasets
-```{R}
+```{R merge the datasets and arrange by year and month}
 merged <-
   inner_join(pols_df,snp_df, by = c("year", "month")) |>
   inner_join(unemployment_df, by = c("year", "month"))|>
