@@ -178,8 +178,9 @@ n_neigh <- n_distinct(na.omit(zori_merged$neighborhood))
 
 # ZIP codes in zip_codes but not in ZORI
 zip_missing <- setdiff(zip_codes_clean$zip, zori_clean$zip)
+```
 
-
+```{R covid rental drop}
 # COVID rental drop (Jan 2020 vs Jan 2021)
 covid_drop <- zori_merged |>
   filter(date %in% c("2020-01-31", "2021-01-31")) |>
@@ -194,12 +195,13 @@ covid_drop <- zori_merged |>
 After cleaning and merging, the resulting tidy dataset contains **`r n_obs`** total observations.  
 It includes **`r n_zip`** unique ZIP codes and **`r n_neigh`** unique neighborhoods across the five boroughs of New York City.  
 
-Some ZIP codes exist in the ZIP code dataset but not in the Zillow dataset — for example,  
+**171** unique ZIP codes exist in the ZIP code dataset but not in the Zillow dataset — for example,  
 **`r paste(head(zip_missing, 5), collapse = ", ")`**.  
 These ZIP codes are often excluded because they may correspond to **non-residential areas** (e.g., large commercial or industrial zones),  
 **P.O. boxes**, or ZIPs with **insufficient rental market data** for Zillow to estimate a rent index.  
 
 Rental prices fluctuated dramatically during the COVID-19 pandemic.  
+
 Comparing January 2021 to January 2020 across all ZIP codes, the table below shows the ten ZIP codes with the largest decline in rent prices:  
 
 ### Comments on the TOP 10 rental prices drop ZIP code
